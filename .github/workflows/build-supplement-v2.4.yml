@@ -8,6 +8,10 @@ on:
       - '.github/workflows/build-supplement-v2.4.yml'
       - 'supplement/technical_supplement.tex'
 
+concurrency:
+  group: supplement-v2-4-build
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
