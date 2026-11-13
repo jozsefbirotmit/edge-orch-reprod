@@ -1,0 +1,35 @@
+name: Check Zenodo DOI for v1.0.1
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/check-zenodo-v1.0.1.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lookup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query Zenodo original and version endpoints
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, urllib.error, time
+          urls = [
+             'https://zenodo.org/api/records/24200109',
+             'https://zenodo.org/api/records/24200109/versions',
+             'https://zenodo.org/api/records?q=title%3A%22Non-Monotone%20Service%20Placement%22&size=30',
+          ]
+          for u in urls:
+              print('QUERY:',u,flush=True)
+              try:
+                  req=urllib.request.Request(u,headers={'User-Agent':'VCC2027-reproducibility-check/1.0','Accept':'application/json'})
+                  with urllib.request.urlopen(req,timeout=30) as resp:
+                      d=json.load(resp);print('HTTP:',resp.status)
+                  if isinstance(d,dict) and d.get('id'):
+                      print('RECORD:',json.dumps({k:d.get(k) for k in ('id','conceptrecid','doi','status','links')},ensure_ascii=False)[:2000])
+                      print('METADATA:',json.dumps({k:d.get('metadata',{}).get(k) for k in ('title','version','doi','publication_date')},ensure_ascii=False))
+                  for z in d.get('hits',{}).get('hits',[]) if isinstance(d.get('hits'),dict) else d.get('hits',[]) if isinstance(d.get('hits'),list) else []:
+                      print('HIT:',json.dumps({'id':z.get('id'),'doi':z.get('doi'),'conceptrecid':z.get('conceptrecid'),'title':z.get('metadata',{}).get('title'),'version':z.get('metadata',{}).get('version')},ensure_ascii=False))
+              except Exception as e:
+                  print('QUERY ERROR:',str(e),flush=True)
+          PY
