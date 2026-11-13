@@ -14,3 +14,9 @@
 - Added approved MIT software and CC BY 4.0 data/figures/documentation licenses.
 - Prepared GitHub staging under `jozsefbirotmit`; no release or DOI exists yet.
 - Documented final copyright attribution confirmation before public visibility.
+
+## Pre-release metadata approval — 2026-11-13
+
+- Corresponding author confirmed that the two-author MIT copyright attribution is appropriate.
+- Explicitly recorded that Nokia and BME dissemination approvals and dual-license choices have been confirmed.
+- Repository remains private; GitHub public release and Zenodo DOI are still pending.

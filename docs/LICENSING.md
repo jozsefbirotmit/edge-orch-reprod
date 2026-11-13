@@ -10,12 +10,10 @@ Authorized license choice confirmed by the corresponding author in November
 - Licenses apply to the original content produced for this research artifact,
   not to third-party software, packages or separately copyrighted material.
 
-The copyright line in `LICENSE` currently names the two authors. Before
-switching the repository to **public**, confirm that this is the legally
-appropriate copyright attribution for code created under the relevant
-institutional/employment agreements; publication approval and copyright
-ownership are distinct questions. Amend that line if the rights holders require
-institutional naming. The repository may remain private during this final check.
+The corresponding author has confirmed that the two-author copyright line in
+`LICENSE` is appropriate and that Nokia and BME approvals for public
+dissemination have been obtained (13 November 2026). These statements record
+author-provided approvals, not an independent legal determination.
 
 Zenodo DOI, if assigned, will point to the archived release, not to the main
 branch. Code and data are intentionally under different licenses; do not set a

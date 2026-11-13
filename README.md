@@ -1,8 +1,8 @@
 # Communication–Compute Service Placement: Reproducibility Artifact
 
-> **PRE-PUBLICATION STAGING PACKAGE — planned v1.0.0 (13 November 2026).**  
+> **VERSION 1.0.0 RELEASE CANDIDATE (13 November 2026) — Zenodo DOI pending.**  
 > Accompanies the six-page manuscript **v2.3.1**, *Non-Monotone Service Placement and Reconfiguration Barriers in Edge Orchestration*, by Gábor Kuruc and József Bíró.  
-> **NOT YET PUBLIC; NO DOI. Institutional publication approvals and MIT/CC BY 4.0 licenses have been reported/selected; copyright attribution should be confirmed before changing visibility to public.** The experiments are synthetic, not measured telecom traces.
+> **The corresponding author has confirmed institutional publication approval, MIT/CC BY 4.0 licensing, and the copyright attribution in the MIT LICENSE. No DOI has yet been assigned.** The experiments are synthetic, not measured telecom traces.
 
 This package collects deterministic multi-service experiments, archived dynamic-controller outputs, exact placement certificates, paired mechanism ablations, manuscript figure assets and the technical supplement. All 5,616 archived controller trajectories (599,040 slots) and the deeper 64/129-slot rational payback calculations were also checked independently in a disposable working copy during preparation; see `docs/VERIFICATION_REPORT.md`. It deliberately excludes older internal research PDFs, older manuscript drafts, nested source ZIPs, bytecode, and unrelated notes.
 
@@ -53,8 +53,8 @@ The detailed claim-to-file map is in [`docs/MANIFEST.md`](docs/MANIFEST.md); ind
 
 ## What is **not** yet complete
 
-The current archive is **not a published dataset**. A durable DOI, a public GitHub release tag, final copyright attribution review, and a complete tested generator for the exact manuscript Fig. 2 and Fig. 3 PDFs remain outstanding. The author reports Nokia/BME publication approval; dual MIT/CC BY 4.0 license files are included. The conference's supplementary-material and double-blind rules must also be checked. Never cite a guessed DOI. A sample DOI placeholder belongs only in internal planning documents, not the submitted manuscript.
+The current archive is **not a published dataset**. A durable DOI, a public GitHub release tag, and a complete tested generator for the exact manuscript Fig. 2 and Fig. 3 PDFs remain outstanding. The corresponding author confirms Nokia/BME publication approval and the MIT license copyright attribution; dual MIT/CC BY 4.0 license files are included. The conference's supplementary-material and double-blind rules must also be checked. Never cite a guessed DOI. A sample DOI placeholder belongs only in internal planning documents, not the submitted manuscript.
 
 ## Licenses and public release
 
-Software code is MIT-licensed (`LICENSE`); original synthetic datasets, research figures and text are CC BY 4.0 (`LICENSE-DATA.md`). See `docs/LICENSING.md` for scope, third-party caveats, and copyright-attribution confirmation before publication. The present package has **no assigned DOI**.
+Software code is MIT-licensed (`LICENSE`); original synthetic datasets, research figures and text are CC BY 4.0 (`LICENSE-DATA.md`). See `docs/LICENSING.md` for scope, third-party caveats, and the confirmed copyright attribution. The present package has **no assigned DOI**.

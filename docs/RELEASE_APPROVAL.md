@@ -1,10 +1,10 @@
 # Pre-publication approval and release checklist
 
-Publication approvals and license preferences were reported by the author on 13 November 2026; copyright-holder attribution and public publication steps remain to be verified.
+Publication approvals, dual-license choices, and the two-author MIT copyright attribution were all confirmed by the corresponding author on 13 November 2026. No repository visibility change or release has yet been performed by these confirmations.
 
-- [ ] Confirm final repository snapshot and authorship/copyright line; general author/institution approval has been reported.
-- [x] Nokia and BME publication approvals **reported by corresponding author**; confirm license copyright attribution separately.
-- [ ] Confirm that all synthetic inputs, full controller outputs, scripts and figures may be shared.
+- [x] Confirm authorship/MIT copyright line; corresponding author explicitly confirmed the two-author attribution (13 November 2026).
+- [x] Nokia and BME publication approvals **reported by corresponding author**; MIT copyright attribution also confirmed.
+- [x] Public dissemination of the prepared original research artifact authorized according to the corresponding author; still review third-party material separately.
 - [x] MIT license selected and `LICENSE` supplied.
 - [x] CC BY 4.0 selected and `LICENSE-DATA.md` supplied for original data, figures and text; verify third-party elements.
 - [ ] Double-check no private data, credentials, sensitive source or unpublished restricted PDF remains.
@@ -12,7 +12,7 @@ Publication approvals and license preferences were reported by the author on 13 
 - [ ] Confirm whether exact Fig. 2/3 paper-specific generators should be added, or document generation sufficiently.
 - [ ] Recheck `SHA256SUMS.txt` on final frozen source.
 - [ ] Check VCC 2027 anonymous review, external materials and supplementary archive policies.
-- [ ] Create repository (e.g., GitHub) only after approval; keep private until authorized.
+- [x] Create private GitHub repository `jozsefbirotmit/edge-orch-reprod` and upload the reviewed 92-file artifact; use a separate public-release step.
 - [ ] Select Zenodo/direct archiving approach and obtain a **real version-specific DOI**.
 - [ ] Verify DOI resolves to exact dataset and download contents match checksums.
 - [ ] Update `CITATION.cff` with final release date, version and DOI; create tag and release notes.
