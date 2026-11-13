@@ -1,0 +1,43 @@
+name: Publish validated Research Artifact v1.0.1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'supplement/technical_supplement.pdf'
+      - 'supplement/technical_supplement.tex'
+      - 'CITATION.cff'
+      - '.github/workflows/publish-artifact-v1.0.1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate exact research artifact
+        run: |
+          python3 -B tools/verify_release.py --quick
+          test "$(grep -c 'v2.4 (updated research artifact)' supplement/technical_supplement.tex)" -eq 1
+          grep -q 'version: "1.0.1"' CITATION.cff
+          python3 - <<'PY'
+          from pathlib import Path
+          pdf = Path("supplement/technical_supplement.pdf").read_bytes()
+          assert pdf.startswith(b"%PDF-")
+          assert len(pdf) > 200_000
+          PY
+      - name: Publish v1.0.1 GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v1.0.1 > /dev/null 2>&1; then
+            echo 'Release v1.0.1 already exists; do not recreate'
+          else
+            gh release create v1.0.1 --target "$GITHUB_SHA" \
+              --title "Research Artifact v1.0.1 — Technical Supplement v2.4" \
+              --notes "Revision of the public reproducibility package for Non-Monotone Service Placement and Reconfiguration Barriers in Edge Orchestration (Gábor Kuruc and József Bíró). Replaces the Technical Supplement v2.3 with v2.4, aligning archive publication statements, verified file paths, licenses and versioned citation metadata with the v2.3.3 conference manuscript. Scientific proofs, exact certificates, simulation results, and manuscript figures remain unchanged. MIT license for executable tools and code, CC BY 4.0 for original data, figures and written documentation. The earlier version-specific Zenodo DOI 10.5281/zenodo.24200109 belongs to v1.0.0. The new version-specific Zenodo DOI must be read from the newly created Zenodo record after GitHub–Zenodo ingestion, not inferred."
+          fi
