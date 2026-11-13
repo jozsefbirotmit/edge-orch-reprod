@@ -41,7 +41,7 @@ jobs:
           import hashlib
           f = Path("SHA256SUMS.txt")
           rows = f.read_text().splitlines()
-          keys = ["supplement/technical_supplement.tex", "supplement/technical_supplement.pdf"]
+          keys = ["supplement/technical_supplement.tex", "supplement/technical_supplement.pdf", "CITATION.cff"]
           for path in keys:
               hits = [i for i, line in enumerate(rows) if line.endswith("  " + path)]
               assert len(hits) == 1, (path, hits)
