@@ -1,0 +1,289 @@
+variant,id,n,replicate,seed,family,has_reversal,has_inherited_strict_trap,inherited_trap_pairs,example_pairs
+full,n3_00,3,0,107729,independent,1,1,6,"[(10, 20, 'MMC'), (15, 20, 'MMC'), (20, 50, 'MRM')]"
+no_transform,n3_00,3,0,107729,independent,0,0,0,[]
+no_transport_congestion,n3_00,3,0,107729,independent,0,0,0,[]
+no_compute_congestion,n3_00,3,0,107729,independent,1,0,0,[]
+full,n3_01,3,1,107730,coupled,1,1,8,"[(10, 20, 'MMC'), (10, 25, 'MMC'), (10, 30, 'MMC')]"
+no_transform,n3_01,3,1,107730,coupled,0,0,0,[]
+no_transport_congestion,n3_01,3,1,107730,coupled,0,0,0,[]
+no_compute_congestion,n3_01,3,1,107730,coupled,1,0,0,[]
+full,n3_02,3,2,107731,independent,1,1,15,"[(15, 40, 'MRC'), (15, 50, 'MRC'), (15, 60, 'MRC')]"
+no_transform,n3_02,3,2,107731,independent,0,0,0,[]
+no_transport_congestion,n3_02,3,2,107731,independent,0,0,0,[]
+no_compute_congestion,n3_02,3,2,107731,independent,1,1,1,"[(10, 20, 'MRM')]"
+full,n3_03,3,3,107732,coupled,1,1,11,"[(10, 20, 'MMC'), (15, 20, 'MMC'), (30, 40, 'RCM')]"
+no_transform,n3_03,3,3,107732,coupled,0,0,0,[]
+no_transport_congestion,n3_03,3,3,107732,coupled,0,0,0,[]
+no_compute_congestion,n3_03,3,3,107732,coupled,0,0,0,[]
+full,n3_04,3,4,107733,independent,1,1,19,"[(10, 25, 'CMM'), (15, 25, 'CMM'), (20, 25, 'CMM')]"
+no_transform,n3_04,3,4,107733,independent,0,0,0,[]
+no_transport_congestion,n3_04,3,4,107733,independent,0,0,0,[]
+no_compute_congestion,n3_04,3,4,107733,independent,1,0,0,[]
+full,n3_05,3,5,107734,coupled,1,1,8,"[(10, 25, 'MCM'), (10, 30, 'MCM'), (15, 25, 'MCM')]"
+no_transform,n3_05,3,5,107734,coupled,0,0,0,[]
+no_transport_congestion,n3_05,3,5,107734,coupled,0,0,0,[]
+no_compute_congestion,n3_05,3,5,107734,coupled,1,0,0,[]
+full,n3_06,3,6,107735,independent,1,1,6,"[(25, 50, 'RMC'), (25, 60, 'RMC'), (30, 50, 'RMC')]"
+no_transform,n3_06,3,6,107735,independent,0,0,0,[]
+no_transport_congestion,n3_06,3,6,107735,independent,0,0,0,[]
+no_compute_congestion,n3_06,3,6,107735,independent,1,1,1,"[(10, 20, 'RMC')]"
+full,n3_07,3,7,107736,coupled,1,1,6,"[(10, 20, 'MCM'), (10, 25, 'MCM'), (15, 20, 'MCM')]"
+no_transform,n3_07,3,7,107736,coupled,0,0,0,[]
+no_transport_congestion,n3_07,3,7,107736,coupled,0,0,0,[]
+no_compute_congestion,n3_07,3,7,107736,coupled,1,0,0,[]
+full,n3_08,3,8,107737,independent,0,1,16,"[(10, 20, 'MMC'), (15, 20, 'MMC'), (30, 50, 'CRM')]"
+no_transform,n3_08,3,8,107737,independent,0,0,0,[]
+no_transport_congestion,n3_08,3,8,107737,independent,0,0,0,[]
+no_compute_congestion,n3_08,3,8,107737,independent,1,0,0,[]
+full,n3_09,3,9,107738,coupled,0,1,4,"[(10, 20, 'CMM'), (10, 25, 'CMM'), (15, 20, 'CMM')]"
+no_transform,n3_09,3,9,107738,coupled,0,0,0,[]
+no_transport_congestion,n3_09,3,9,107738,coupled,0,0,0,[]
+no_compute_congestion,n3_09,3,9,107738,coupled,0,0,0,[]
+full,n3_10,3,10,107739,independent,1,1,10,"[(25, 40, 'CMR'), (25, 50, 'CMR'), (25, 60, 'CMR')]"
+no_transform,n3_10,3,10,107739,independent,0,0,0,[]
+no_transport_congestion,n3_10,3,10,107739,independent,0,0,0,[]
+no_compute_congestion,n3_10,3,10,107739,independent,1,1,1,"[(10, 20, 'MMR')]"
+full,n3_11,3,11,107740,coupled,1,1,6,"[(10, 20, 'MMC'), (15, 20, 'MMC'), (30, 50, 'RCM')]"
+no_transform,n3_11,3,11,107740,coupled,0,0,0,[]
+no_transport_congestion,n3_11,3,11,107740,coupled,0,0,0,[]
+no_compute_congestion,n3_11,3,11,107740,coupled,1,1,2,"[(20, 25, 'RMR'), (20, 30, 'RMR')]"
+full,n3_12,3,12,107741,independent,1,1,16,"[(25, 60, 'CMR'), (25, 70, 'CMR'), (25, 80, 'CMR')]"
+no_transform,n3_12,3,12,107741,independent,0,0,0,[]
+no_transport_congestion,n3_12,3,12,107741,independent,0,0,0,[]
+no_compute_congestion,n3_12,3,12,107741,independent,1,0,0,[]
+full,n3_13,3,13,107742,coupled,1,1,4,"[(10, 20, 'MCM'), (10, 25, 'MCM'), (15, 20, 'MCM')]"
+no_transform,n3_13,3,13,107742,coupled,0,0,0,[]
+no_transport_congestion,n3_13,3,13,107742,coupled,0,0,0,[]
+no_compute_congestion,n3_13,3,13,107742,coupled,1,0,0,[]
+full,n3_14,3,14,107743,independent,0,1,20,"[(25, 80, 'CRM'), (25, 90, 'CRM'), (25, 100, 'CRM')]"
+no_transform,n3_14,3,14,107743,independent,0,0,0,[]
+no_transport_congestion,n3_14,3,14,107743,independent,0,0,0,[]
+no_compute_congestion,n3_14,3,14,107743,independent,1,1,1,"[(10, 20, 'MRM')]"
+full,n3_15,3,15,107744,coupled,1,1,4,"[(10, 20, 'MMC'), (15, 20, 'MMC'), (20, 25, 'CRM')]"
+no_transform,n3_15,3,15,107744,coupled,0,0,0,[]
+no_transport_congestion,n3_15,3,15,107744,coupled,0,0,0,[]
+no_compute_congestion,n3_15,3,15,107744,coupled,1,0,0,[]
+full,n3_16,3,16,107745,independent,0,1,12,"[(20, 50, 'RCM'), (20, 60, 'RCM'), (20, 70, 'RCM')]"
+no_transform,n3_16,3,16,107745,independent,0,0,0,[]
+no_transport_congestion,n3_16,3,16,107745,independent,0,0,0,[]
+no_compute_congestion,n3_16,3,16,107745,independent,0,0,0,[]
+full,n3_17,3,17,107746,coupled,1,1,9,"[(15, 20, 'MCR'), (15, 25, 'MCR'), (15, 30, 'MCR')]"
+no_transform,n3_17,3,17,107746,coupled,0,0,0,[]
+no_transport_congestion,n3_17,3,17,107746,coupled,0,0,0,[]
+no_compute_congestion,n3_17,3,17,107746,coupled,1,0,0,[]
+full,n3_18,3,18,107747,independent,0,1,25,"[(20, 60, 'CRM'), (20, 70, 'CRM'), (20, 80, 'CRM')]"
+no_transform,n3_18,3,18,107747,independent,0,0,0,[]
+no_transport_congestion,n3_18,3,18,107747,independent,0,0,0,[]
+no_compute_congestion,n3_18,3,18,107747,independent,0,0,0,[]
+full,n3_19,3,19,107748,coupled,1,1,13,"[(20, 40, 'MRM'), (20, 50, 'MRM'), (25, 40, 'MRM')]"
+no_transform,n3_19,3,19,107748,coupled,0,0,0,[]
+no_transport_congestion,n3_19,3,19,107748,coupled,0,0,0,[]
+no_compute_congestion,n3_19,3,19,107748,coupled,0,0,0,[]
+full,n3_20,3,20,107749,independent,1,1,17,"[(10, 20, 'MCM'), (10, 25, 'MCM'), (15, 20, 'MCM')]"
+no_transform,n3_20,3,20,107749,independent,0,0,0,[]
+no_transport_congestion,n3_20,3,20,107749,independent,0,0,0,[]
+no_compute_congestion,n3_20,3,20,107749,independent,0,0,0,[]
+full,n3_21,3,21,107750,coupled,1,1,18,"[(20, 40, 'RMC'), (20, 50, 'RMC'), (20, 60, 'RMC')]"
+no_transform,n3_21,3,21,107750,coupled,0,0,0,[]
+no_transport_congestion,n3_21,3,21,107750,coupled,0,0,0,[]
+no_compute_congestion,n3_21,3,21,107750,coupled,1,0,0,[]
+full,n3_22,3,22,107751,independent,0,1,14,"[(15, 70, 'MRC'), (15, 80, 'MRC'), (20, 70, 'MRC')]"
+no_transform,n3_22,3,22,107751,independent,0,0,0,[]
+no_transport_congestion,n3_22,3,22,107751,independent,0,0,0,[]
+no_compute_congestion,n3_22,3,22,107751,independent,0,0,0,[]
+full,n3_23,3,23,107752,coupled,0,1,20,"[(10, 20, 'MMC'), (15, 20, 'MMC'), (25, 40, 'RCM')]"
+no_transform,n3_23,3,23,107752,coupled,0,0,0,[]
+no_transport_congestion,n3_23,3,23,107752,coupled,0,0,0,[]
+no_compute_congestion,n3_23,3,23,107752,coupled,1,0,0,[]
+full,n3_24,3,24,107753,independent,1,1,5,"[(10, 25, 'MMC'), (15, 25, 'MMC'), (20, 25, 'MMC')]"
+no_transform,n3_24,3,24,107753,independent,0,0,0,[]
+no_transport_congestion,n3_24,3,24,107753,independent,0,0,0,[]
+no_compute_congestion,n3_24,3,24,107753,independent,0,0,0,[]
+full,n3_25,3,25,107754,coupled,1,1,15,"[(20, 60, 'RCM'), (20, 70, 'RCM'), (20, 80, 'RCM')]"
+no_transform,n3_25,3,25,107754,coupled,0,0,0,[]
+no_transport_congestion,n3_25,3,25,107754,coupled,0,0,0,[]
+no_compute_congestion,n3_25,3,25,107754,coupled,1,0,0,[]
+full,n3_26,3,26,107755,independent,1,1,24,"[(20, 80, 'MRM'), (20, 90, 'MRM'), (20, 100, 'MRM')]"
+no_transform,n3_26,3,26,107755,independent,0,0,0,[]
+no_transport_congestion,n3_26,3,26,107755,independent,0,0,0,[]
+no_compute_congestion,n3_26,3,26,107755,independent,0,0,0,[]
+full,n3_27,3,27,107756,coupled,1,1,6,"[(10, 20, 'CMM'), (15, 20, 'CMM'), (20, 30, 'MRC')]"
+no_transform,n3_27,3,27,107756,coupled,0,0,0,[]
+no_transport_congestion,n3_27,3,27,107756,coupled,0,0,0,[]
+no_compute_congestion,n3_27,3,27,107756,coupled,0,0,0,[]
+full,n3_28,3,28,107757,independent,0,1,21,"[(15, 100, 'MRC'), (15, 120, 'MRC'), (15, 150, 'MRC')]"
+no_transform,n3_28,3,28,107757,independent,0,0,0,[]
+no_transport_congestion,n3_28,3,28,107757,independent,0,0,0,[]
+no_compute_congestion,n3_28,3,28,107757,independent,0,0,0,[]
+full,n3_29,3,29,107758,coupled,1,1,10,"[(10, 25, 'CMM'), (15, 25, 'CMM'), (20, 25, 'CMM')]"
+no_transform,n3_29,3,29,107758,coupled,0,0,0,[]
+no_transport_congestion,n3_29,3,29,107758,coupled,0,0,0,[]
+no_compute_congestion,n3_29,3,29,107758,coupled,0,0,0,[]
+full,n3_30,3,30,107759,independent,0,1,6,"[(10, 20, 'MMC'), (10, 25, 'MMC'), (10, 30, 'MMC')]"
+no_transform,n3_30,3,30,107759,independent,0,0,0,[]
+no_transport_congestion,n3_30,3,30,107759,independent,0,0,0,[]
+no_compute_congestion,n3_30,3,30,107759,independent,0,0,0,[]
+full,n3_31,3,31,107760,coupled,1,1,2,"[(50, 120, 'CMR'), (60, 120, 'CMR')]"
+no_transform,n3_31,3,31,107760,coupled,0,0,0,[]
+no_transport_congestion,n3_31,3,31,107760,coupled,0,0,0,[]
+no_compute_congestion,n3_31,3,31,107760,coupled,0,0,0,[]
+full,n4_00,4,0,108729,independent,1,1,5,"[(10, 20, 'RMMC'), (10, 25, 'RMMC'), (40, 70, 'RCMR')]"
+no_transform,n4_00,4,0,108729,independent,0,1,1,"[(10, 20, 'RMCM')]"
+no_transport_congestion,n4_00,4,0,108729,independent,0,0,0,[]
+no_compute_congestion,n4_00,4,0,108729,independent,1,1,1,"[(15, 20, 'RRMM')]"
+full,n4_01,4,1,108730,coupled,1,1,14,"[(15, 25, 'MRMC'), (15, 30, 'MRMC'), (15, 40, 'MRMC')]"
+no_transform,n4_01,4,1,108730,coupled,0,0,0,[]
+no_transport_congestion,n4_01,4,1,108730,coupled,0,0,0,[]
+no_compute_congestion,n4_01,4,1,108730,coupled,1,1,1,"[(15, 20, 'MRRM')]"
+full,n4_02,4,2,108731,independent,0,1,15,"[(10, 40, 'RCCM'), (10, 50, 'RCCM'), (10, 60, 'RCCM')]"
+no_transform,n4_02,4,2,108731,independent,0,0,0,[]
+no_transport_congestion,n4_02,4,2,108731,independent,0,0,0,[]
+no_compute_congestion,n4_02,4,2,108731,independent,1,0,0,[]
+full,n4_03,4,3,108732,coupled,1,1,14,"[(20, 25, 'MRCM'), (20, 30, 'MRCM'), (25, 40, 'CRMM')]"
+no_transform,n4_03,4,3,108732,coupled,0,0,0,[]
+no_transport_congestion,n4_03,4,3,108732,coupled,0,0,0,[]
+no_compute_congestion,n4_03,4,3,108732,coupled,0,0,0,[]
+full,n4_04,4,4,108733,independent,1,1,6,"[(15, 25, 'RMCM'), (15, 30, 'RMCM'), (15, 40, 'RMCM')]"
+no_transform,n4_04,4,4,108733,independent,0,0,0,[]
+no_transport_congestion,n4_04,4,4,108733,independent,0,0,0,[]
+no_compute_congestion,n4_04,4,4,108733,independent,1,0,0,[]
+full,n4_05,4,5,108734,coupled,1,1,16,"[(15, 25, 'MCMR'), (15, 30, 'MCMR'), (15, 40, 'MCMR')]"
+no_transform,n4_05,4,5,108734,coupled,0,0,0,[]
+no_transport_congestion,n4_05,4,5,108734,coupled,0,1,4,"[(30, 40, 'MCCR'), (30, 50, 'MCCR'), (30, 60, 'MCCR')]"
+no_compute_congestion,n4_05,4,5,108734,coupled,1,0,0,[]
+full,n4_06,4,6,108735,independent,1,1,9,"[(15, 40, 'CMRM'), (15, 50, 'CMRM'), (20, 40, 'CMRM')]"
+no_transform,n4_06,4,6,108735,independent,0,0,0,[]
+no_transport_congestion,n4_06,4,6,108735,independent,0,0,0,[]
+no_compute_congestion,n4_06,4,6,108735,independent,1,1,1,"[(15, 20, 'MMRR')]"
+full,n4_07,4,7,108736,coupled,1,1,14,"[(15, 40, 'CRMM'), (15, 50, 'CRMM'), (20, 40, 'CRMM')]"
+no_transform,n4_07,4,7,108736,coupled,0,0,0,[]
+no_transport_congestion,n4_07,4,7,108736,coupled,0,0,0,[]
+no_compute_congestion,n4_07,4,7,108736,coupled,1,0,0,[]
+full,n4_08,4,8,108737,independent,1,1,15,"[(20, 40, 'MCRC'), (20, 50, 'MCRC'), (20, 60, 'MCRC')]"
+no_transform,n4_08,4,8,108737,independent,0,1,4,"[(15, 25, 'MMRC'), (15, 30, 'MMRC'), (20, 25, 'MMRC')]"
+no_transport_congestion,n4_08,4,8,108737,independent,0,0,0,[]
+no_compute_congestion,n4_08,4,8,108737,independent,1,0,0,[]
+full,n4_09,4,9,108738,coupled,1,1,11,"[(15, 20, 'RCMM'), (20, 30, 'RMMC'), (25, 30, 'RMMC')]"
+no_transform,n4_09,4,9,108738,coupled,0,0,0,[]
+no_transport_congestion,n4_09,4,9,108738,coupled,0,0,0,[]
+no_compute_congestion,n4_09,4,9,108738,coupled,1,0,0,[]
+full,n4_10,4,10,108739,independent,0,1,30,"[(15, 50, 'CMCR'), (15, 60, 'CMCR'), (15, 70, 'CMCR')]"
+no_transform,n4_10,4,10,108739,independent,0,0,0,[]
+no_transport_congestion,n4_10,4,10,108739,independent,0,0,0,[]
+no_compute_congestion,n4_10,4,10,108739,independent,1,0,0,[]
+full,n4_11,4,11,108740,coupled,1,1,13,"[(10, 20, 'CMMR'), (40, 70, 'RCMR'), (40, 80, 'RCMR')]"
+no_transform,n4_11,4,11,108740,coupled,0,0,0,[]
+no_transport_congestion,n4_11,4,11,108740,coupled,0,0,0,[]
+no_compute_congestion,n4_11,4,11,108740,coupled,1,0,0,[]
+full,n4_12,4,12,108741,independent,1,1,1,"[(10, 20, 'MCMR')]"
+no_transform,n4_12,4,12,108741,independent,0,0,0,[]
+no_transport_congestion,n4_12,4,12,108741,independent,0,0,0,[]
+no_compute_congestion,n4_12,4,12,108741,independent,1,0,0,[]
+full,n4_13,4,13,108742,coupled,1,1,22,"[(15, 25, 'CRMM'), (15, 30, 'CRMM'), (20, 25, 'CRMM')]"
+no_transform,n4_13,4,13,108742,coupled,0,0,0,[]
+no_transport_congestion,n4_13,4,13,108742,coupled,0,0,0,[]
+no_compute_congestion,n4_13,4,13,108742,coupled,1,0,0,[]
+full,n4_14,4,14,108743,independent,0,1,3,"[(20, 40, 'CMRC'), (25, 40, 'CMRC'), (30, 40, 'CMRC')]"
+no_transform,n4_14,4,14,108743,independent,0,0,0,[]
+no_transport_congestion,n4_14,4,14,108743,independent,0,0,0,[]
+no_compute_congestion,n4_14,4,14,108743,independent,0,0,0,[]
+full,n4_15,4,15,108744,coupled,1,1,20,"[(15, 20, 'RMMC'), (15, 25, 'RMMC'), (20, 25, 'MMCR')]"
+no_transform,n4_15,4,15,108744,coupled,0,0,0,[]
+no_transport_congestion,n4_15,4,15,108744,coupled,0,0,0,[]
+no_compute_congestion,n4_15,4,15,108744,coupled,1,0,0,[]
+full,n4_16,4,16,108745,independent,0,1,3,"[(15, 30, 'RMCC'), (20, 30, 'RMCC'), (25, 30, 'RMCC')]"
+no_transform,n4_16,4,16,108745,independent,0,0,0,[]
+no_transport_congestion,n4_16,4,16,108745,independent,0,0,0,[]
+no_compute_congestion,n4_16,4,16,108745,independent,0,0,0,[]
+full,n4_17,4,17,108746,coupled,1,1,11,"[(15, 30, 'CRMM'), (15, 40, 'CRMM'), (20, 30, 'CRMM')]"
+no_transform,n4_17,4,17,108746,coupled,0,0,0,[]
+no_transport_congestion,n4_17,4,17,108746,coupled,0,0,0,[]
+no_compute_congestion,n4_17,4,17,108746,coupled,1,1,1,"[(15, 20, 'MRMR')]"
+full,n4_18,4,18,108747,independent,0,0,0,[]
+no_transform,n4_18,4,18,108747,independent,0,0,0,[]
+no_transport_congestion,n4_18,4,18,108747,independent,0,0,0,[]
+no_compute_congestion,n4_18,4,18,108747,independent,1,0,0,[]
+full,n4_19,4,19,108748,coupled,1,1,5,"[(15, 20, 'MMRC'), (15, 25, 'MMRC'), (40, 100, 'MMRR')]"
+no_transform,n4_19,4,19,108748,coupled,0,0,0,[]
+no_transport_congestion,n4_19,4,19,108748,coupled,0,0,0,[]
+no_compute_congestion,n4_19,4,19,108748,coupled,1,0,0,[]
+full,n4_20,4,20,108749,independent,0,0,0,[]
+no_transform,n4_20,4,20,108749,independent,0,0,0,[]
+no_transport_congestion,n4_20,4,20,108749,independent,0,0,0,[]
+no_compute_congestion,n4_20,4,20,108749,independent,1,0,0,[]
+full,n4_21,4,21,108750,coupled,1,1,11,"[(40, 50, 'MCRR'), (40, 60, 'MCRR'), (40, 70, 'MCRR')]"
+no_transform,n4_21,4,21,108750,coupled,0,0,0,[]
+no_transport_congestion,n4_21,4,21,108750,coupled,0,0,0,[]
+no_compute_congestion,n4_21,4,21,108750,coupled,1,0,0,[]
+full,n4_22,4,22,108751,independent,1,1,4,"[(50, 90, 'RRCM'), (50, 100, 'RRCM'), (60, 90, 'RRCM')]"
+no_transform,n4_22,4,22,108751,independent,0,0,0,[]
+no_transport_congestion,n4_22,4,22,108751,independent,0,0,0,[]
+no_compute_congestion,n4_22,4,22,108751,independent,1,0,0,[]
+full,n4_23,4,23,108752,coupled,1,1,8,"[(10, 20, 'CMMC'), (15, 20, 'CMMC'), (25, 30, 'CRMM')]"
+no_transform,n4_23,4,23,108752,coupled,0,0,0,[]
+no_transport_congestion,n4_23,4,23,108752,coupled,0,0,0,[]
+no_compute_congestion,n4_23,4,23,108752,coupled,0,0,0,[]
+full,n5_00,5,0,109729,independent,1,1,6,"[(15, 25, 'RCMCM'), (20, 25, 'RCMCM'), (25, 40, 'RMMCR')]"
+no_transform,n5_00,5,0,109729,independent,0,0,0,[]
+no_transport_congestion,n5_00,5,0,109729,independent,0,0,0,[]
+no_compute_congestion,n5_00,5,0,109729,independent,1,0,0,[]
+full,n5_01,5,1,109730,coupled,1,1,6,"[(15, 20, 'RCMMM'), (15, 25, 'RCMMM'), (60, 70, 'RCRMR')]"
+no_transform,n5_01,5,1,109730,coupled,0,0,0,[]
+no_transport_congestion,n5_01,5,1,109730,coupled,0,1,3,"[(20, 25, 'RCCMM'), (20, 30, 'RCCMM'), (20, 40, 'RCCMM')]"
+no_compute_congestion,n5_01,5,1,109730,coupled,1,0,0,[]
+full,n5_02,5,2,109731,independent,1,1,1,"[(20, 25, 'CRMCM')]"
+no_transform,n5_02,5,2,109731,independent,0,0,0,[]
+no_transport_congestion,n5_02,5,2,109731,independent,1,1,16,"[(30, 90, 'MCMRC'), (30, 100, 'MCMRC'), (30, 120, 'MCMRC')]"
+no_compute_congestion,n5_02,5,2,109731,independent,1,0,0,[]
+full,n5_03,5,3,109732,coupled,1,1,8,"[(40, 50, 'RCMRM'), (40, 60, 'RCMRM'), (50, 100, 'RMMRC')]"
+no_transform,n5_03,5,3,109732,coupled,0,0,0,[]
+no_transport_congestion,n5_03,5,3,109732,coupled,0,0,0,[]
+no_compute_congestion,n5_03,5,3,109732,coupled,1,0,0,[]
+full,n5_04,5,4,109733,independent,1,1,10,"[(25, 100, 'RRCMM'), (25, 120, 'RRCMM'), (30, 100, 'RRCMM')]"
+no_transform,n5_04,5,4,109733,independent,0,0,0,[]
+no_transport_congestion,n5_04,5,4,109733,independent,0,0,0,[]
+no_compute_congestion,n5_04,5,4,109733,independent,1,1,22,"[(15, 25, 'RRCMM'), (15, 30, 'RRCMM'), (15, 40, 'RRCMM')]"
+full,n5_05,5,5,109734,coupled,1,1,5,"[(10, 20, 'MMCCR'), (15, 20, 'RMCMC'), (20, 25, 'RMMCC')]"
+no_transform,n5_05,5,5,109734,coupled,0,1,3,"[(15, 20, 'RMCCM'), (20, 25, 'CMRCR'), (20, 30, 'CMRCR')]"
+no_transport_congestion,n5_05,5,5,109734,coupled,0,0,0,[]
+no_compute_congestion,n5_05,5,5,109734,coupled,1,0,0,[]
+full,n5_06,5,6,109735,independent,0,1,5,"[(20, 60, 'MCCRR'), (25, 60, 'MCCRR'), (30, 60, 'MCCRR')]"
+no_transform,n5_06,5,6,109735,independent,0,0,0,[]
+no_transport_congestion,n5_06,5,6,109735,independent,0,1,1,"[(10, 20, 'CCMCR')]"
+no_compute_congestion,n5_06,5,6,109735,independent,1,0,0,[]
+full,n5_07,5,7,109736,coupled,1,1,1,"[(20, 25, 'CRMCM')]"
+no_transform,n5_07,5,7,109736,coupled,0,0,0,[]
+no_transport_congestion,n5_07,5,7,109736,coupled,0,0,0,[]
+no_compute_congestion,n5_07,5,7,109736,coupled,1,0,0,[]
+full,n5_08,5,8,109737,independent,1,1,5,"[(15, 20, 'CCRMM'), (15, 25, 'CCRMM'), (20, 30, 'CCMMR')]"
+no_transform,n5_08,5,8,109737,independent,0,0,0,[]
+no_transport_congestion,n5_08,5,8,109737,independent,0,0,0,[]
+no_compute_congestion,n5_08,5,8,109737,independent,1,0,0,[]
+full,n5_09,5,9,109738,coupled,1,1,3,"[(15, 20, 'RMMMC'), (15, 25, 'RMMMC'), (20, 25, 'CRMMM')]"
+no_transform,n5_09,5,9,109738,coupled,0,0,0,[]
+no_transport_congestion,n5_09,5,9,109738,coupled,0,0,0,[]
+no_compute_congestion,n5_09,5,9,109738,coupled,1,0,0,[]
+full,n5_10,5,10,109739,independent,1,1,7,"[(15, 20, 'RCMCM'), (15, 25, 'RCMCM'), (20, 30, 'MCRCM')]"
+no_transform,n5_10,5,10,109739,independent,0,0,0,[]
+no_transport_congestion,n5_10,5,10,109739,independent,0,0,0,[]
+no_compute_congestion,n5_10,5,10,109739,independent,1,0,0,[]
+full,n5_11,5,11,109740,coupled,1,1,9,"[(10, 20, 'CCMMM'), (15, 25, 'MCMRM'), (15, 30, 'MCMRM')]"
+no_transform,n5_11,5,11,109740,coupled,0,1,3,"[(15, 20, 'MCCRM'), (15, 25, 'MCCRM'), (15, 30, 'MCCRM')]"
+no_transport_congestion,n5_11,5,11,109740,coupled,0,0,0,[]
+no_compute_congestion,n5_11,5,11,109740,coupled,1,0,0,[]
+full,n5_12,5,12,109741,independent,1,1,11,"[(10, 50, 'RMCCM'), (15, 50, 'RMCCM'), (20, 50, 'RMCCM')]"
+no_transform,n5_12,5,12,109741,independent,0,0,0,[]
+no_transport_congestion,n5_12,5,12,109741,independent,0,0,0,[]
+no_compute_congestion,n5_12,5,12,109741,independent,1,0,0,[]
+full,n5_13,5,13,109742,coupled,1,1,2,"[(10, 20, 'MMCMR'), (25, 30, 'RMCMR')]"
+no_transform,n5_13,5,13,109742,coupled,0,0,0,[]
+no_transport_congestion,n5_13,5,13,109742,coupled,0,0,0,[]
+no_compute_congestion,n5_13,5,13,109742,coupled,1,0,0,[]
+full,n5_14,5,14,109743,independent,0,1,13,"[(10, 30, 'MCCMR'), (15, 30, 'MCCMR'), (20, 30, 'MCCMR')]"
+no_transform,n5_14,5,14,109743,independent,0,0,0,[]
+no_transport_congestion,n5_14,5,14,109743,independent,0,0,0,[]
+no_compute_congestion,n5_14,5,14,109743,independent,0,0,0,[]
+full,n5_15,5,15,109744,coupled,1,1,5,"[(15, 20, 'MMMCR'), (25, 30, 'MRMCC'), (40, 80, 'MRMCR')]"
+no_transform,n5_15,5,15,109744,coupled,0,0,0,[]
+no_transport_congestion,n5_15,5,15,109744,coupled,0,1,8,"[(40, 50, 'MCCCR'), (40, 60, 'MCCCR'), (40, 70, 'MCCCR')]"
+no_compute_congestion,n5_15,5,15,109744,coupled,1,0,0,[]

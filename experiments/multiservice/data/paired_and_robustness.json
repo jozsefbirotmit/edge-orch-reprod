@@ -1,0 +1,89 @@
+{
+  "paired": {
+    "3": {
+      "RAR8_better_MPC8": 9,
+      "equal": 94,
+      "RAR8_worse_MPC8": 89,
+      "MPC64_matches_offline": 192,
+      "RAR_A64_matches_offline": 191
+    },
+    "4": {
+      "RAR8_better_MPC8": 7,
+      "equal": 71,
+      "RAR8_worse_MPC8": 66,
+      "MPC64_matches_offline": 144,
+      "RAR_A64_matches_offline": 144
+    },
+    "5": {
+      "RAR8_better_MPC8": 2,
+      "equal": 33,
+      "RAR8_worse_MPC8": 61,
+      "MPC64_matches_offline": 96,
+      "RAR_A64_matches_offline": 93
+    }
+  },
+  "local_robustness": {
+    "3": {
+      "probes": 50,
+      "strict_traps": 48,
+      "depth_at_least_three": 25,
+      "depth_four": 0,
+      "same_initial": 25,
+      "payback_min": 2,
+      "payback_max": 11
+    },
+    "4": {
+      "probes": 50,
+      "strict_traps": 33,
+      "depth_at_least_three": 27,
+      "depth_four": 5,
+      "same_initial": 31,
+      "payback_min": 5,
+      "payback_max": 221
+    },
+    "5": {
+      "probes": 50,
+      "strict_traps": 25,
+      "depth_at_least_three": 12,
+      "depth_four": 11,
+      "same_initial": 43,
+      "payback_min": 3,
+      "payback_max": 236
+    }
+  },
+  "largest_primary_saving": {
+    "id": "n5_09",
+    "n": "5",
+    "replicate": "9",
+    "seed": "109738",
+    "family": "coupled",
+    "trace": "seeded_blocks",
+    "T": "128",
+    "initial": "RMMMC",
+    "budget": "1",
+    "kappa_per_service": "0.0025",
+    "status": "ok",
+    "operating_cost": "62.58615522094058",
+    "switching_cost": "0.0975",
+    "total_cost": "62.68365522094058",
+    "service_moves": "39",
+    "placement_switches": "32",
+    "overrides": "3",
+    "slo_violation_slots": "0",
+    "peak_stress": "0.5416169767884327",
+    "controller": "offline",
+    "gap_to_offline": "0.0",
+    "gap_to_offline_pct": "0.0",
+    "saving_vs_myopic": "24.757540084906765",
+    "saving_vs_myopic_pct": "28.313359622213653",
+    "operating_saving_vs_myopic": "24.770040084906768",
+    "extra_migration_vs_myopic": "0.012499999999999997",
+    "accepted_plans": "0",
+    "ledger_residual": "0.0",
+    "max_preview_queried": "0",
+    "dp_slots": "0",
+    "controller_seconds": "5.520000740943942e-07",
+    "final": "CRMMM"
+  },
+  "primary_slots_per_controller": 46080
+}

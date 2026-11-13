@@ -1,0 +1,13 @@
+variant,H,optimal_placement,optimal_stress,strict_reversal_on_grid
+full,40,MR,0.4870370370370371,1
+full,100,RM,0.4758581752484192,1
+full,400,RR,0.4491529991529991,1
+no_transform,40,CR,1.1988328664799246,0
+no_transform,100,CR,1.1988328664799246,0
+no_transform,400,CR,1.1988328664799246,0
+no_transport_congestion,40,CM,0.3758169934640523,0
+no_transport_congestion,100,CR,0.3758169934640523,0
+no_transport_congestion,400,CR,0.3758169934640523,0
+no_compute_congestion,40,RR,0.4378917378917379,0
+no_compute_congestion,100,RR,0.4378917378917379,0
+no_compute_congestion,400,RR,0.4378917378917379,0

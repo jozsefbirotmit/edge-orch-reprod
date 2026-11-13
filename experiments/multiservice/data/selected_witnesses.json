@@ -1,0 +1,50 @@
+[
+  {
+    "id": "n3_21",
+    "n": 3,
+    "replicate": 21,
+    "seed": 107750,
+    "family": "coupled",
+    "low": 20,
+    "high": 50,
+    "initial": "RMC",
+    "neighbor_excess": 0.008308141062589147,
+    "operating_gap": 0.01987110787898272,
+    "min_moves_to_better": 3,
+    "payback": 4,
+    "payback_moves": 3,
+    "distinct_services": 3
+  },
+  {
+    "id": "n4_11",
+    "n": 4,
+    "replicate": 11,
+    "seed": 108740,
+    "family": "coupled",
+    "low": 40,
+    "high": 70,
+    "initial": "RCMR",
+    "neighbor_excess": 0.003931391110890137,
+    "operating_gap": 0.0033808366081636843,
+    "min_moves_to_better": 3,
+    "payback": 12,
+    "payback_moves": 4,
+    "distinct_services": 4
+  },
+  {
+    "id": "n5_14",
+    "n": 5,
+    "replicate": 14,
+    "seed": 109743,
+    "family": "independent",
+    "low": 10,
+    "high": 30,
+    "initial": "MCCMR",
+    "neighbor_excess": 0.005071882905676728,
+    "operating_gap": 0.0006581378223342593,
+    "min_moves_to_better": 4,
+    "payback": 64,
+    "payback_moves": 4,
+    "distinct_services": 4
+  }
+]

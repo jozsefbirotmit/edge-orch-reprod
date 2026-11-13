@@ -1,0 +1,5 @@
+variant,start_optimal_at_H10,start_cost_H30,global_state_H30,global_cost_H30,strict_exchange_trap,shortest_escape_moves
+full,1,0.5246617927267127,RMMCR,0.5240036549043784,1,4
+no_transform,1,1.3024692520392174,RCCMM,1.3024692520392174,0,0
+no_transport_congestion,0,0.42621928996948,MCCCR,0.4036110013926542,0,1
+no_compute_congestion,1,0.4894940578747249,RMMRR,0.47017841981898056,0,1

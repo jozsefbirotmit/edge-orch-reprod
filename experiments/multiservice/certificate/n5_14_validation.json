@@ -1,0 +1,78 @@
+{
+  "certificate": "n5_14",
+  "source_seed": 109743,
+  "family": "independent",
+  "services": 5,
+  "headroom": 30,
+  "initial": "MCCMR",
+  "goal": "RMMCR",
+  "total_placements": 243,
+  "feasible_placements": 242,
+  "counts_by_distance": {
+    "0": 1,
+    "1": 10,
+    "2": 40,
+    "3": 80,
+    "4": 80,
+    "5": 32
+  },
+  "strictly_worse_at_all_distances_1_to_3": true,
+  "minimum_improving_distance": 4,
+  "initial_J_exact": "129886383052936157083000/247562114972972261485533",
+  "goal_J_exact": "15059563779848251679000/28739425076331506729829",
+  "operating_saving_per_slot": 0.0006581378223342325,
+  "best_at_each_distance": {
+    "0": {
+      "placement": "MCCMR",
+      "J_exact": "129886383052936157083000/247562114972972261485533",
+      "J_decimal": 0.5246617927267125
+    },
+    "1": {
+      "placement": "MCCCR",
+      "J_exact": "6376952053065340638625/12038034103557066909877",
+      "J_decimal": 0.5297336756323894
+    },
+    "2": {
+      "placement": "RMCMR",
+      "J_exact": "920856294536125451517625/1752018247062742655096373",
+      "J_decimal": 0.5255974337481589
+    },
+    "3": {
+      "placement": "RMMMR",
+      "J_exact": "8809952758092979349000/16416513980381765124693",
+      "J_decimal": 0.5366518597444708
+    },
+    "4": {
+      "placement": "RMMCR",
+      "J_exact": "15059563779848251679000/28739425076331506729829",
+      "J_decimal": 0.5240036549043783
+    },
+    "5": {
+      "placement": "RMMCM",
+      "J_exact": "316150754285036044139000/584500803176752126521423",
+      "J_decimal": 0.540890196500607
+    }
+  },
+  "witness_path": [
+    "MCCMR",
+    "RCCMR",
+    "RMCMR",
+    "RMMMR",
+    "RMMCR"
+  ],
+  "bottleneck_services_on_path": [
+    1,
+    1,
+    2,
+    3,
+    1
+  ],
+  "last_move_frees_MEC_compute": 10.7113,
+  "migration_budget": 1,
+  "per_service_migration_penalty": "1/400",
+  "one_way_payback": 64,
+  "closed_return_payback": 129,
+  "stored_rational_certificate_verified": true,
+  "independent_deep_payback_rerun": true,
+  "interpretation": "All four-move barrier claims are exact Fractions for the archived synthetic model; payback values are separate constant-H cost diagnostics."
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "variant": "full",
+    "n": 3,
+    "N": 32,
+    "reversal": 23,
+    "inherited_trap": 32
+  },
+  {
+    "variant": "full",
+    "n": 4,
+    "N": 24,
+    "reversal": 18,
+    "inherited_trap": 22
+  },
+  {
+    "variant": "full",
+    "n": 5,
+    "N": 16,
+    "reversal": 14,
+    "inherited_trap": 16
+  },
+  {
+    "variant": "full",
+    "n": "all",
+    "N": 72,
+    "reversal": 55,
+    "inherited_trap": 70
+  },
+  {
+    "variant": "no_transform",
+    "n": 3,
+    "N": 32,
+    "reversal": 0,
+    "inherited_trap": 0
+  },
+  {
+    "variant": "no_transform",
+    "n": 4,
+    "N": 24,
+    "reversal": 0,
+    "inherited_trap": 2
+  },
+  {
+    "variant": "no_transform",
+    "n": 5,
+    "N": 16,
+    "reversal": 0,
+    "inherited_trap": 2
+  },
+  {
+    "variant": "no_transform",
+    "n": "all",
+    "N": 72,
+    "reversal": 0,
+    "inherited_trap": 4
+  },
+  {
+    "variant": "no_transport_congestion",
+    "n": 3,
+    "N": 32,
+    "reversal": 0,
+    "inherited_trap": 0
+  },
+  {
+    "variant": "no_transport_congestion",
+    "n": 4,
+    "N": 24,
+    "reversal": 0,
+    "inherited_trap": 1
+  },
+  {
+    "variant": "no_transport_congestion",
+    "n": 5,
+    "N": 16,
+    "reversal": 1,
+    "inherited_trap": 4
+  },
+  {
+    "variant": "no_transport_congestion",
+    "n": "all",
+    "N": 72,
+    "reversal": 1,
+    "inherited_trap": 5
+  },
+  {
+    "variant": "no_compute_congestion",
+    "n": 3,
+    "N": 32,
+    "reversal": 18,
+    "inherited_trap": 5
+  },
+  {
+    "variant": "no_compute_congestion",
+    "n": 4,
+    "N": 24,
+    "reversal": 20,
+    "inherited_trap": 4
+  },
+  {
+    "variant": "no_compute_congestion",
+    "n": 5,
+    "N": 16,
+    "reversal": 15,
+    "inherited_trap": 1
+  },
+  {
+    "variant": "no_compute_congestion",
+    "n": "all",
+    "N": 72,
+    "reversal": 53,
+    "inherited_trap": 10
+  }
+]

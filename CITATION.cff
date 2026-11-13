@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Cite the tagged GitHub release; once a Zenodo DOI is assigned, cite the archived version DOI."
+type: software
+title: "Non-Monotone Service Placement and Reconfiguration Barriers in Edge Orchestration: Research Artifact"
+authors:
+  - family-names: Kuruc
+    given-names: Gábor
+    affiliation: "Nokia Research, Hungary"
+  - family-names: Bíró
+    given-names: József
+    affiliation: "Budapest University of Technology and Economics, Hungary"
+version: "1.0.0"
+abstract: "Reproducibility research artifact with Python model, deterministic synthetic inputs, controller traces, exact finite-state certificates, paired ablation results, and technical supplement corresponding to manuscript v2.3.1."
+keywords:
+  - edge orchestration
+  - service placement
+  - bounded reconfiguration
+  - exact verification
+  - RAN compute headroom

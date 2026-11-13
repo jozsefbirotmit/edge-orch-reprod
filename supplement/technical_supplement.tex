@@ -1,0 +1,181 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem,url}
+\Urlmuskip=0mu plus 2mu\relax
+\newtheorem{proposition}{Proposition}
+\title{Technical Supplement\\[2mm]\large Exact Certificates, Payback Diagnostics, and Experimental Protocols\\ for \emph{Non-Monotone Service Placement and Reconfiguration Barriers in Edge Orchestration}}
+\author{G\'abor Kuruc \and J\'ozsef B\'ir\'o}
+\date{Working companion, 13 November 2026 --- v2.3}
+\begin{document}\maketitle
+\begin{abstract}
+This companion retains instance specifications, algebraic derivations, full-state certificates, and experimental details moved out of the structurally shortened conference manuscript. The manuscript remains self-contained with respect to its model, main claims, witness configurations, and conditional controller guarantee. The information below is backed by the archived internal source packages listed in Section~\ref{sec:files}; those archives \emph{are not yet publicly deposited}. A stable public address and licensing decision must be added before relying on an external supplement citation in a submitted paper.
+\end{abstract}
+\tableofcontents
+\section{Model details and the traffic transformation rule}
+There are $n$ services, one traffic-transforming processing stage per service, and candidate processing tiers $R,M,C$ along a common \emph{logical} two-link route. A service's input traffic $b_i$ becomes $\eta_i b_i$ after processing. The choice of tier affects aggregate carried traffic even though all services still experience the same two link-delay terms.
+\begin{table}[h]\centering
+\caption{Per-service contribution to shared transport-link loads}\label{tab:traffic}
+\begin{tabular}{lcc}\toprule Stage tier & $R$--$M$ load & $M$--$C$ load\\\midrule
+$R$ & $\eta_i b_i$ & $\eta_i b_i$\\
+$M$ & $b_i$ & $\eta_i b_i$\\
+$C$ & $b_i$ & $b_i$\\\bottomrule
+\end{tabular}\end{table}
+For placement $\pi\in\{R,M,C\}^n$, write
+\begin{align*}
+q_t^\pi&=\sum_{i:\pi_i=t}c_i,\\
+L_1^\pi&=\sum_i b_i[\eta_i\mathbf 1\{\pi_i=R\}+\mathbf 1\{\pi_i\ne R\}],\\
+L_2^\pi&=\sum_i b_i[\eta_i\mathbf 1\{\pi_i\ne C\}+\mathbf 1\{\pi_i=C\}].
+\end{align*}
+The congestion surrogates and worst normalized service cost are
+\begin{align*}
+d_e(L,B_e)&=\delta_e+a_e L/(B_e-L),\\
+P_i^\pi(H)&=p^0_{i,\pi_i}\frac{H_{\pi_i}}{H_{\pi_i}-q_{\pi_i}^\pi},\\
+J_\pi(H)&=\max_i\frac{r_i+\sum_e d_e(L_e^\pi,B_e)+P_i^\pi(H)}{\tau_i}.
+\end{align*}
+Hard feasibility means $L_e^\pi<B_e$ and $q_t^\pi<H_t$ for occupied tiers. An SLO violation ($J_\pi>1$) does not automatically mean hard infeasibility. Only $H_R=H$ varies; $H_M,H_C$ are fixed. The rate unit and compute resource unit are normalized, and migration penalties are dimensionless additive costs rather than seconds of actual downtime.
+
+\section{Full two-service reversal certificate}\label{sec:n2}
+The following are the exact parameters of the two-service construction in the main paper. Fixed tier capacities are $H_M=60$, $H_C=120$; link capacities $(B_1,B_2)=(2.4,1.8)$; link constants $(\delta_1,\delta_2)=(1,2)$ and $(a_1,a_2)=(0.5,0.8)$; radio-side delays $r_A=r_B=2$. The remaining service parameters are
+\begin{table}[h]\centering\small
+\caption{Two-service witness parameters: $(b,\eta,c,\tau,p^0_R,p^0_M,p^0_C)$}
+\begin{tabular}{ll}\toprule
+$A$ & $(1,\ 0.1,\ 18,\ 18,\ 2.5,\ 2,\ 1.5)$\\
+$B$ & $(0.7,\ 0.5,\ 12,\ 20,\ 2,\ 1.7,\ 1.3)$\\\bottomrule
+\end{tabular}\end{table}
+A two-letter placement string lists the tiers of $A$ and $B$, respectively. Of the $3^2=9$ placements, $MM$, $CM$, $CC$, and $CR$ are strictly worse than $MC$ on their feasible headroom domains, while $RC$ is worse than $RM$. The remaining normalized costs are
+\begin{align}
+J_{MC}&=\frac{1133}{2100},\nonumber\\
+J_{MR}&=\max\left\{\frac{263}{540},\frac{1241/210+2H/(H-12)}{20}\right\},\nonumber\\
+J_{RM}&=\frac{331/60+(5/2)H/(H-18)}{18},\label{eq:four}\\
+J_{RR}&=\frac{2099/390+(5/2)H/(H-30)}{18}.\nonumber
+\end{align}
+The feasible domains of $MR$, $RM$, and $RR$ require $H>12,18,30$, respectively. The first envelope crossing is $H_1=2460/121\approx20.33058$ between $MC$ and $MR$. The $MR$ cost reaches its constant branch at $H_b=86892/3461$ with $H_1<H_b<78$. The second global crossing is $H_2=78$ between that branch and $RM$. Finally,
+\begin{equation}
+18(J_{RR}-J_{RM})=-\frac{7}{52}+\frac{30H}{(H-30)(H-18)}
+\label{eq:diff}
+\end{equation}
+vanishes once for $H>30$, at the larger root of $7H^2-1896H+3780=0$:
+\[H_3=268.84858\ldots.\]
+Exact comparison on the feasible domains therefore gives
+\[ MC\xrightarrow{H_1} MR\xrightarrow{H_2}RM\xrightarrow{H_3}RR.\]
+At $H=40,100,400$ the optima $MR,RM,RR$ are unique, with second-best gaps $0.052487$, $0.011179$, and $0.002762$, respectively. Thus service $B$ follows $R\to M\to R$ as $H$ grows. When only one service exists, MEC and Core costs are constant in $H$ whereas feasible RAN processing cost strictly decreases. Consequently an individual service cannot strictly prefer RAN, then MEC, then RAN at increasing headrooms. Notice that the optimum system cost remains non-increasing, even though the identity of the preferred assignment reverses.
+
+\section{Complete five-service exchange certificate}\label{sec:n5}
+We use the synthetic independent-family witness \texttt{n5\_14} (population seed 109743). Fixed capacities are $H_M=60$, $H_C=120$, $B_1=2.4$, $B_2=1.8$; delay coefficients match the two-service construction. The operating-cost certificate is evaluated at $H=30$, with starting placement $s=MCCMR$, the optimum at lower headroom $H=10$.
+\begin{table}[h]\centering\small
+\caption{Exact finite-decimal service inputs for the five-service witness}\label{tab:n5parameters}
+\begin{tabular}{@{}r r r r r r r r@{}}\toprule
+$i$ & $b_i$ & $\eta_i$ & $c_i$ & $\tau_i$ & $p^0_{iR}$ & $p^0_{iM}$ & $p^0_{iC}$\\\midrule
+1& .4218&.4425&5.8993&17.4387&1.9463&1.7452&1.5212\\
+2& .2379&.3484&4.6096&16.2088&2.1313&1.7235&1.1980\\
+3& .3105&.5310&4.5652&17.1309&2.5887&2.1361&1.5970\\
+4& .3325&.5676&10.7113&18.6267&2.6403&2.1254&1.4458\\
+5& .3973&.2360&4.2146&20.6577&2.0799&1.6023&1.2974\\\bottomrule
+\end{tabular}\end{table}
+Every service has radio delay $r_i=2$. The listed finite-decimal parameters are used as \emph{exact rationals} in the certificate. Among $3^5=243$ possible placements, $242$ satisfy hard capacity constraints at $H=30$. The best feasible cost at each Hamming distance from the start is
+\begin{table}[h]\centering\small
+\caption{Complete-enumeration minima at each Hamming distance}\label{tab:distance}
+\begin{tabular}{r l r}\toprule
+Distance & Best placement & Minimum $J$\\\midrule
+0&MCCMR&0.5246617927\\
+1&MCCCR&0.5297336756\\
+2&RMCMR&0.5255974337\\
+3&RMMMR&0.5366518597\\
+4&RMMCR&0.5240036549\\
+5&RMMCM&0.5408901965\\\bottomrule
+\end{tabular}\end{table}
+All distances 1--3 are strictly worse than the start. A feasible one-service-per-slot sequence exists:
+\[MCCMR\to RCCMR\to RMCMR\to RMMMR\to RMMCR.\]
+It follows that the minimum number of feasible relocations before reaching a cheaper placement is exactly four. This is stronger than identifying a local optimum, since the complete enumeration checks all states at smaller Hamming distance and the displayed sequence confirms reachability.
+\begin{table}[h]\centering\small
+\caption{Operating effects of the feasible four-move sequence}\label{tab:route}
+\begin{tabular}{@{}lrrr@{}}\toprule
+Placement & Link delay (ms) & $J$ & Active SLO service\\\midrule
+MCCMR &4.736111&0.524661793&1\\
+RCCMR &4.509106&0.541627375&1\\
+RMCMR &4.204799&0.525597434&2\\
+RMMMR &3.998277&0.536651860&3\\
+RMMCR &4.201771&0.524003655&1\\\bottomrule
+\end{tabular}\end{table}
+The first three relocations reduce common transport delay, yet each raises the maximum SLO-normalized service delay. The last relocation moves service 4 from MEC to Core, freeing exactly $10.7113$ compute units at MEC; despite increased network delay the new operating objective is lower. Migration penalties are not required for this operating-cost trap. The full exact fractional values for all 243 placements are stored in \path{multiservice/certificate/n5_14_all_placements.csv}; the quick and deep rational verification methods are described in the reproducibility documentation.
+
+\section{Payback definitions, examples, and additional checks}\label{sec:payback}
+Let the relocation penalty be $\kappa_i=0.0025$ for each moved service, with a nominal per-slot limit of $m=1$ (subject to emergency feasibility repair). For a fixed headroom and starting placement $s$, let $V_K^{\rm out}(s)$ be the best $K$-slot accumulated operating-plus-migration cost when the last state is free. Let $V_K^{\rm ret}(s)$ additionally require that the \emph{last operating-slot placement} equal $s$. Define
+\[K_x=\min\{K\ge1:V_K^x(s)<KJ_s(H)\},\quad x\in\{\mathrm{out},\mathrm{ret}\}.\]
+The diagnostic closed-return constraint is not the true free-terminal orchestration objective and is not the moving-reference condition used by RAR. For a one-move-per-slot sequence $s=\pi^0,\ldots,\pi^r=p$, followed by operation at $p$ through slot $K\ge r$, define
+\begin{align*}
+g&=J_s(H)-J_p(H)>0,\\
+B_\gamma&=\sum_{j=1}^{r-1}(J_{\pi^j}(H)-J_s(H))
++\sum_{j=1}^r C_{\rm rec}(\pi^{j-1},\pi^j).
+\end{align*}
+Then $C_\gamma(K)-KJ_s(H)=B_\gamma-(K-r+1)g$. For the chosen four-move five-service sequence, $g=0.000658137822\ldots$ and $B_\gamma=0.039891290\ldots$. This path changes from a loss at slot 63 to a gain at slot 64. An independently certified rational finite-horizon DP checks that \emph{no other admissible path} improves sooner, and yields $K_{\rm out}=64$ and $K_{\rm ret}=129$.
+\begin{table}[h]\centering\small
+\caption{Selected witnesses; exact distance and payback diagnostics}\label{tab:paybacks}
+\begin{tabular}{lrrr}\toprule
+& \texttt{n3\_21} & \texttt{n4\_11} & \texttt{n5\_14}\\\midrule
+Low to high headroom & $20\to50$ &$40\to70$ &$10\to30$\\
+Starting placement &RMC&RCMR&MCCMR\\
+Minimum escape moves &3&3&4\\
+Free-terminal payback (slots) &4&12&64\\
+Closed-return payback (slots) &8&25&129\\
+Profitable high pulse (slots)&5&22&128\\\bottomrule
+\end{tabular}\end{table}
+The pulse numbers are minimum durations of the \emph{middle high-headroom segment} in a low--high--low trace with 64 low-headroom slots before and after, not constant-high return diagnostics. Allowing $m=2$ reduces free-terminal/closed-return pairs to $2/5$, $6/13$, and $18/37$, respectively. Allowing all five services to move together still leaves a 16-slot constant-high payback for the direct five-service exchange. These selected values show that relocation distance, number of distinct services moved by an optimal plan, and accumulated return-adjusted payback are different quantities.
+
+\section{Synthetic populations, ablation, and controller traces}\label{sec:experiments}
+The primary experiment retains the identical three-tier, two-link model. It draws $32$ ($n=3$), $24$ ($n=4$), and $16$ ($n=5$) synthetic populations, each with total input rate 1.7 and total compute demand 30. Half the population instances use independent heterogeneity and half a compression--compute trade-off. The complete generation ranges, seeds, code, and data are in the archive described below. No population is filtered by outcome.
+\begin{table}[h]\centering\small
+\caption{Original structural occurrence breakdown}\begin{tabular}{lrrr}\toprule
+$n$ &3&4&5\\\midrule
+Populations &32&24&16\\
+Sampled reversal &23&18&14\\
+Inherited strict local trap &32&22&16\\\bottomrule
+\end{tabular}\end{table}
+\begin{table}[h]\centering\small
+\caption{Paired ablation counts, each out of the same 72 populations}\begin{tabular}{lrr}\toprule
+Variant & Reversal & Trap\\\midrule
+Full model &55&70\\
+No traffic transformation ($\eta_i=1$)&0&4\\
+Load-independent transport delay&1&5\\
+Load-independent compute delay, hard capacity retained&53&10\\\bottomrule
+\end{tabular}\end{table}
+These are counts of populations containing at least one sampled witness on the predefined headroom grid, not deployed-network prevalence rates. A local-trap condition is checked separately from reachability. Setting all $\eta_i=1$ also drives aggregate downstream traffic to 1.7 against link capacity 1.8, so mechanism ablations do not isolate small perturbations or imply generic necessity.
+
+Each population is exposed to six predefined headroom traces: pulse, two ramps, oscillation, abrupt withdrawal, and seeded blocks, for 432 primary matched traces. Under nominal $m=1$, $\kappa_i=0.0025$, emergency repair exceeds the budget in 212 myopic transitions and 197 each for MPC64 and RAR-A64. Every controller knows the current headroom; each has exact forecasts only within the windows it queries, and all know the experimental trace endpoint. Offline DP uses full-trace knowledge. The mean gap below is the simple mean across \emph{traces} of the percentage total-cost gap against offline, rather than a pooled per-slot physical-latency improvement.
+\begin{table}[h]\centering\small
+\caption{Primary-trace controller mean percentage gaps}\begin{tabular}{lrrr}\toprule
+Controller & $n=3$ (192) & $n=4$ (144) & $n=5$ (96)\\\midrule
+Myopic &1.45175&0.68858&1.64230\\
+MPC8&0.00823&0.00758&0.00691\\
+RAR8&0.05908&0.06442&0.05835\\
+MPC64&0&0&0\\
+RAR-A64&0.00035&0&0.00023\\\bottomrule
+\end{tabular}\end{table}
+In these 432 primary traces, myopic is suboptimal on 380; MPC64 matches offline in all 432 and RAR-A64 in 428. At preview eight, RAR8 beats MPC8 on 18, ties on 198, and loses on 216; MPC8 has four cases worse than myopic, and RAR8 none. This does not prove RAR superiority over MPC or universal sufficiency of any fixed preview.
+
+The two pulse illustrations in the conference paper are \emph{selected sensitivity examples separate from the 432 primary traces}. The $n=4$ 24-slot pulse allows a profitable four-service exchange that earns 0.009951 versus myopic and is identified by MPC64 and RAR-A64, but not by eight-slot controllers. For the selected $n=5$ 96-slot pulse, MPC64 incurs 0.020550 extra accumulated cost (0.020000 migration and 0.000550 operating) compared with myopic. In a separate 256-slot constant-$H=30$ experiment, MPC64 and offline save 0.126618 versus myopic but RAR-A64 only 0.000255, until the longer $K=129$ window is available.
+
+A third, separate sensitivity grid contains 270 combinations (three selected witnesses, 15 pulse durations, six migration-penalty values). Offline improves on myopic in 94; RAR-A64 misses all profitable savings in six such cases but avoids losses relative to myopic in this grid, while MPC64 loses to myopic in six cases. In the primary suite myopic records 50 slots with $J>1$ out of 46,080 tested operating slots, compared with zero for the tested preview policies; this is only an observed diagnostic.
+
+Finally, we independently perturb the three selected witnesses by up to $\pm2\%$ in 50 unfiltered trials each, renormalizing total load. For each perturbed system, the low-headroom optimum is \emph{recomputed}. A strict higher-headroom trap persists in 48/50, 33/50 and 25/50 cases; the four-move five-service obstruction persists in 11/50. The \emph{original} starting placement remains unchanged in 25/50, 31/50 and 43/50 cases, respectively. These quantities characterize persistence of the phenomenon under the stated reoptimization protocol, not stability of an identical initial placement in all trials.
+
+\section{RAR baseline condition and proof details}\label{sec:rar}
+Let a feasible, deterministic shadow-myopic trajectory $\bar\pi_0^{\rm myo},\ldots,\bar\pi_T^{\rm myo}$ begin in the same placement as the RAR controller. A retained, unexecuted incumbent plan is completed before the fallback follows the shadow reference. An alternative must cover the whole incumbent and, for a comparison window ending before $T$, end at the \emph{same reference placement} as the fallback. Only a strictly cheaper full-window plan is accepted. At $T$, the endpoint is free.
+
+Under correct forecasts in each queried window, the same feasibility and migration-cost accounting, and the retained-incumbent rule, an accepted plan replaces a prospective full trajectory by one of cost smaller by $\Delta_k>0$. The plans agree beyond the comparison endpoint, so all later actions can be shared. Induction preserves a feasible full continuation, and telescoping gives $C_{\rm myopic}-C_{\rm RAR}=\sum_{k=1}^T\Delta_k\ge0$. Since offline DP minimizes over the feasible full trajectories, $C_{\rm offline}\le C_{\rm RAR}\le C_{\rm myopic}$. This is a conditional use of the known feasible-baseline or fortified rollout principle, not a new general theorem. It gives no matched-preview MPC dominance or forecast-error robustness.
+
+\section{Evidence files and publication status}\label{sec:files}
+Two machine-readable internal archives are available alongside this working supplement:
+\begin{description}[leftmargin=5mm,style=nextline]
+\item[Core reproducibility archive] \path{VCC2027_Reproducibility_Package_v1_0.zip}. Contains the core finite-state experiment scripts, populations, full raw trace tables, source-specific README, exact $n=5$ placement enumeration, rational payback certificate, and verification scripts. Key files are the verification script and the complete-enumeration and payback records:\begin{itemize}[leftmargin=*,nosep]
+\item \path{multiservice/verify_n5_certificate.py}
+\item \path{multiservice/certificate/n5_14_all_placements.csv}
+\item \path{multiservice/data/fraction_certificates.json}
+\end{itemize}
+\item[Ablation archive] \path{VCC2027_Ablation_Study_v1_0.zip}. Contains matched-population ablation scripts and outputs, paired population counts, the selected witness checks, and independent verification instructions.
+\end{description}
+The file paths above are relative to the unzipped archive root \path{VCC2027_Reproducibility_v1_0/} or \path{VCC2027_Ablation_v1_0/}. Follow the README in each archive for verification commands. To rerun rational payback DP from the root of the first archive, use:\begin{quote}\small\path{python multiservice/verify_n5_certificate.py --deep-payback}\end{quote} \textbf{Publication is still pending:} obtain the authors' approval, choose and record a license, merge the two archives into a reproducible public release, assign a stable URL or DOI, and insert that genuine address in the final main paper. Neither this working supplement nor a local ZIP path is an external citation.
+\end{document}

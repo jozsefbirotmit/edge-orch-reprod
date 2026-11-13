@@ -1,0 +1,18 @@
+test_balanced_non_negligible_populations (test_general.GeneralTests.test_balanced_non_negligible_populations) ... ok
+test_exact_subset_capacity_boundary (test_general.GeneralTests.test_exact_subset_capacity_boundary) ... ok
+test_general_dp_against_independent_dense_recursion (test_general.GeneralTests.test_general_dp_against_independent_dense_recursion) ... ok
+test_general_rar_bound_ledger_full_preview (test_general.GeneralTests.test_general_rar_bound_ledger_full_preview) ... ok
+test_genuine_four_move_operating_barrier (test_general.GeneralTests.test_genuine_four_move_operating_barrier) ... ok
+test_n2_exact_paths_match_existing_controllers (test_general.GeneralTests.test_n2_exact_paths_match_existing_controllers) ... ok
+test_n2_reference_physics_and_rational_anchor (test_general.GeneralTests.test_n2_reference_physics_and_rational_anchor) ... ok
+test_n3_fraction_dp_and_brute_paths (test_general.GeneralTests.test_n3_fraction_dp_and_brute_paths) ... ok
+test_no_preview_leak_general_population (test_general.GeneralTests.test_no_preview_leak_general_population) ... ok
+test_original_payback_and_closed_return (test_general.GeneralTests.test_original_payback_and_closed_return) ... ok
+test_outage_and_strict_budget_fail (test_general.GeneralTests.test_outage_and_strict_budget_fail) ... ok
+test_sparse_edges_equal_full_emergency_rule (test_general.GeneralTests.test_sparse_edges_equal_full_emergency_rule) ... ok
+test_vector_costs_match_scalar_all_states (test_general.GeneralTests.test_vector_costs_match_scalar_all_states) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.475s
+
+OK
