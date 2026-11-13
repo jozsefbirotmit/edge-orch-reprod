@@ -1,9 +1,6 @@
 name: Build revised Technical Supplement PDF
 
 on:
-  push:
-    branches: [supplement-v2.4-staging]
-    paths: ['.github/workflows/build-supplement-v2.4.yml']
   workflow_dispatch:
   pull_request:
     branches: [main]
@@ -16,7 +13,7 @@ permissions:
 
 jobs:
   build-and-commit:
-    if: github.ref == 'refs/heads/supplement-v2.4-staging' || github.head_ref == 'supplement-v2.4-staging'
+    if: github.actor != 'github-actions[bot]' && (github.ref == 'refs/heads/supplement-v2.4-staging' || github.head_ref == 'supplement-v2.4-staging')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
