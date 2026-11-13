@@ -5,18 +5,24 @@ on:
     branches: [supplement-v2.4-staging]
     paths: ['.github/workflows/build-supplement-v2.4.yml']
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-supplement-v2.4.yml'
+      - 'supplement/technical_supplement.tex'
 
 permissions:
   contents: write
 
 jobs:
   build-and-commit:
-    if: github.ref == 'refs/heads/supplement-v2.4-staging'
+    if: github.ref == 'refs/heads/supplement-v2.4-staging' || github.head_ref == 'supplement-v2.4-staging'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+          ref: supplement-v2.4-staging
       - name: Install TeX dependencies
         run: |
           sudo apt-get update -qq
