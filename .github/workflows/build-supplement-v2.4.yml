@@ -1,0 +1,60 @@
+name: Build revised Technical Supplement PDF
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-supplement-v2.4.yml'
+      - 'supplement/technical_supplement.tex'
+
+concurrency:
+  group: supplement-v2-4-build
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-commit:
+    if: github.actor != 'github-actions[bot]' && (github.ref == 'refs/heads/supplement-v2.4-staging' || github.head_ref == 'supplement-v2.4-staging')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          ref: supplement-v2.4-staging
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended poppler-utils
+      - name: Compile supplement PDF
+        run: |
+          mkdir -p /tmp/supplement-build
+          pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/supplement-build supplement/technical_supplement.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/supplement-build supplement/technical_supplement.tex
+          cp /tmp/supplement-build/technical_supplement.pdf supplement/technical_supplement.pdf
+          test "$(pdfinfo supplement/technical_supplement.pdf | awk '/^Pages:/ {print $2}')" = "6"
+      - name: Update SHA256SUMS entries for source and PDF
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          f = Path("SHA256SUMS.txt")
+          rows = f.read_text().splitlines()
+          keys = ["supplement/technical_supplement.tex", "supplement/technical_supplement.pdf", "CITATION.cff"]
+          for path in keys:
+              hits = [i for i, line in enumerate(rows) if line.endswith("  " + path)]
+              assert len(hits) == 1, (path, hits)
+              rows[hits[0]] = hashlib.sha256(Path(path).read_bytes()).hexdigest() + "  " + path
+          f.write_text("\n".join(rows) + "\n")
+          for path in keys:
+              print(path, hashlib.sha256(Path(path).read_bytes()).hexdigest())
+          PY
+          sha256sum -c SHA256SUMS.txt
+      - name: Commit the compiled PDF and its integrity checksum
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supplement/technical_supplement.pdf SHA256SUMS.txt
+          git diff --cached --quiet || (git commit -m "Build and verify Technical Supplement v2.4 PDF" && git push origin HEAD:supplement-v2.4-staging)

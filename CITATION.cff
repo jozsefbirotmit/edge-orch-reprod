@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite the tagged GitHub release; once a Zenodo DOI is assigned, cite the archived version DOI."
+message: "Cite this tagged GitHub release; use its own version-specific Zenodo DOI once the new archive appears."
 type: software
 title: "Non-Monotone Service Placement and Reconfiguration Barriers in Edge Orchestration: Research Artifact"
 authors:
@@ -9,8 +9,8 @@ authors:
   - family-names: Bíró
     given-names: József
     affiliation: "Budapest University of Technology and Economics, Hungary"
-version: "1.0.0"
-abstract: "Reproducibility research artifact with Python model, deterministic synthetic inputs, controller traces, exact finite-state certificates, paired ablation results, and technical supplement corresponding to manuscript v2.3.1."
+version: "1.0.1"
+abstract: "Reproducibility research artifact with Python model, deterministic synthetic inputs, controller traces, exact finite-state certificates, paired ablation results, and technical supplement corresponding to manuscript v2.3.3 and technical supplement v2.4."
 keywords:
   - edge orchestration
   - service placement

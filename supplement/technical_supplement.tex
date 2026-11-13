@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 \usepackage[margin=23mm]{geometry}
 \usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable}
@@ -8,14 +8,14 @@
 \newtheorem{proposition}{Proposition}
 \title{Technical Supplement\\[2mm]\large Exact Certificates, Payback Diagnostics, and Experimental Protocols\\ for \emph{Non-Monotone Service Placement and Reconfiguration Barriers in Edge Orchestration}}
 \author{G\'abor Kuruc \and J\'ozsef B\'ir\'o}
-\date{Working companion, 13 November 2026 --- v2.3}
+\date{13 November 2026 --- v2.4 (updated research artifact)}
 \begin{document}\maketitle
 \begin{abstract}
-This companion retains instance specifications, algebraic derivations, full-state certificates, and experimental details moved out of the structurally shortened conference manuscript. The manuscript remains self-contained with respect to its model, main claims, witness configurations, and conditional controller guarantee. The information below is backed by the archived internal source packages listed in Section~\ref{sec:files}; those archives \emph{are not yet publicly deposited}. A stable public address and licensing decision must be added before relying on an external supplement citation in a submitted paper.
+This companion retains instance specifications, algebraic derivations, full-state certificates, and experimental details supporting the conference manuscript. The manuscript is self-contained with respect to the system model, main structural claims, witness configurations, and conditional controller guarantee. Versioned research code, synthetic datasets, certificates, and this supplement are publicly available at \url{https://github.com/jozsefbirotmit/edge-orch-reprod}. The original research artifact (v1.0.0) is archived at \url{https://doi.org/10.5281/zenodo.24200109}. This revised supplement will belong to a subsequent artifact release, with a separate version DOI when Zenodo archiving is complete.
 \end{abstract}
 \tableofcontents
 \section{Model details and the traffic transformation rule}
-There are $n$ services, one traffic-transforming processing stage per service, and candidate processing tiers $R,M,C$ along a common \emph{logical} two-link route. A service's input traffic $b_i$ becomes $\eta_i b_i$ after processing. The choice of tier affects aggregate carried traffic even though all services still experience the same two link-delay terms.
+There are $n$ services, one traffic-transforming processing stage per service, and candidate processing tiers $R,M,C$ along a common \emph{logical} two-link route. A service's input traffic $b_i$ becomes $\eta_i b_i$ after processing. The choice of tier affects aggregate carried traffic even though all services still experience the same two link-delay terms. The common logical route is a modelling abstraction; it does not imply shorter geographical paths or local-breakout routes when processing occurs closer to the RAN.
 \begin{table}[h]\centering
 \caption{Per-service contribution to shared transport-link loads}\label{tab:traffic}
 \begin{tabular}{lcc}\toprule Stage tier & $R$--$M$ load & $M$--$C$ load\\\midrule
@@ -35,7 +35,7 @@ d_e(L,B_e)&=\delta_e+a_e L/(B_e-L),\\
 P_i^\pi(H)&=p^0_{i,\pi_i}\frac{H_{\pi_i}}{H_{\pi_i}-q_{\pi_i}^\pi},\\
 J_\pi(H)&=\max_i\frac{r_i+\sum_e d_e(L_e^\pi,B_e)+P_i^\pi(H)}{\tau_i}.
 \end{align*}
-Hard feasibility means $L_e^\pi<B_e$ and $q_t^\pi<H_t$ for occupied tiers. An SLO violation ($J_\pi>1$) does not automatically mean hard infeasibility. Only $H_R=H$ varies; $H_M,H_C$ are fixed. The rate unit and compute resource unit are normalized, and migration penalties are dimensionless additive costs rather than seconds of actual downtime.
+Hard feasibility means $L_e^\pi<B_e$ and $q_t^\pi<H_t$ for occupied tiers. An SLO violation ($J_\pi>1$) does not automatically mean hard infeasibility. Only $H_R=H$ varies; $H_M,H_C$ are fixed. The rate unit and compute resource unit are normalized, and migration penalties are dimensionless additive costs rather than seconds of actual downtime. The delay laws are illustrative load-dependent surrogates, not calibrated physical CPU/GPU scheduling or packet-queue models.
 
 \section{Full two-service reversal certificate}\label{sec:n2}
 The following are the exact parameters of the two-service construction in the main paper. Fixed tier capacities are $H_M=60$, $H_C=120$; link capacities $(B_1,B_2)=(2.4,1.8)$; link constants $(\delta_1,\delta_2)=(1,2)$ and $(a_1,a_2)=(0.5,0.8)$; radio-side delays $r_A=r_B=2$. The remaining service parameters are
@@ -100,7 +100,7 @@ RMCMR &4.204799&0.525597434&2\\
 RMMMR &3.998277&0.536651860&3\\
 RMMCR &4.201771&0.524003655&1\\\bottomrule
 \end{tabular}\end{table}
-The first three relocations reduce common transport delay, yet each raises the maximum SLO-normalized service delay. The last relocation moves service 4 from MEC to Core, freeing exactly $10.7113$ compute units at MEC; despite increased network delay the new operating objective is lower. Migration penalties are not required for this operating-cost trap. The full exact fractional values for all 243 placements are stored in \path{multiservice/certificate/n5_14_all_placements.csv}; the quick and deep rational verification methods are described in the reproducibility documentation.
+The first three relocations reduce common transport delay, yet each raises the maximum SLO-normalized service delay. The last relocation moves service 4 from MEC to Core, freeing exactly $10.7113$ compute units at MEC; despite increased network delay the new operating objective is lower. Migration penalties are not required for this operating-cost trap. The full exact fractional values for all 243 placements are stored in \path{experiments/multiservice/certificate/n5_14_all_placements.csv}; the quick and deep rational verification methods are described in the reproducibility documentation.
 
 \section{Payback definitions, examples, and additional checks}\label{sec:payback}
 Let the relocation penalty be $\kappa_i=0.0025$ for each moved service, with a nominal per-slot limit of $m=1$ (subject to emergency feasibility repair). For a fixed headroom and starting placement $s$, let $V_K^{\rm out}(s)$ be the best $K$-slot accumulated operating-plus-migration cost when the last state is free. Let $V_K^{\rm ret}(s)$ additionally require that the \emph{last operating-slot placement} equal $s$. Define
@@ -111,7 +111,9 @@ g&=J_s(H)-J_p(H)>0,\\
 B_\gamma&=\sum_{j=1}^{r-1}(J_{\pi^j}(H)-J_s(H))
 +\sum_{j=1}^r C_{\rm rec}(\pi^{j-1},\pi^j).
 \end{align*}
-Then $C_\gamma(K)-KJ_s(H)=B_\gamma-(K-r+1)g$. For the chosen four-move five-service sequence, $g=0.000658137822\ldots$ and $B_\gamma=0.039891290\ldots$. This path changes from a loss at slot 63 to a gain at slot 64. An independently certified rational finite-horizon DP checks that \emph{no other admissible path} improves sooner, and yields $K_{\rm out}=64$ and $K_{\rm ret}=129$.
+The excess cost over staying is
+\[C_\gamma(K)-KJ_s=B_\gamma-(K-r+1)g.\]
+For the chosen four-move five-service sequence, $g=0.000658137822\ldots$ and $B_\gamma=0.039891290\ldots$. This path changes from a loss at slot 63 to a gain at slot 64. An independently certified rational finite-horizon DP checks that \emph{no other admissible path} improves sooner, and yields $K_{\rm out}=64$ and $K_{\rm ret}=129$.
 \begin{table}[h]\centering\small
 \caption{Selected witnesses; exact distance and payback diagnostics}\label{tab:paybacks}
 \begin{tabular}{lrrr}\toprule
@@ -126,7 +128,7 @@ Profitable high pulse (slots)&5&22&128\\\bottomrule
 The pulse numbers are minimum durations of the \emph{middle high-headroom segment} in a low--high--low trace with 64 low-headroom slots before and after, not constant-high return diagnostics. Allowing $m=2$ reduces free-terminal/closed-return pairs to $2/5$, $6/13$, and $18/37$, respectively. Allowing all five services to move together still leaves a 16-slot constant-high payback for the direct five-service exchange. These selected values show that relocation distance, number of distinct services moved by an optimal plan, and accumulated return-adjusted payback are different quantities.
 
 \section{Synthetic populations, ablation, and controller traces}\label{sec:experiments}
-The primary experiment retains the identical three-tier, two-link model. It draws $32$ ($n=3$), $24$ ($n=4$), and $16$ ($n=5$) synthetic populations, each with total input rate 1.7 and total compute demand 30. Half the population instances use independent heterogeneity and half a compression--compute trade-off. The complete generation ranges, seeds, code, and data are in the archive described below. No population is filtered by outcome.
+The primary experiment retains the identical three-tier, two-link model. It draws $32$ ($n=3$), $24$ ($n=4$), and $16$ ($n=5$) synthetic populations, each with total input rate 1.7 and total compute demand 30. Half the population instances use independent heterogeneity and half a compression--compute trade-off. The complete generation ranges, seeds, code, and data are in the public release. No population is filtered by outcome.
 \begin{table}[h]\centering\small
 \caption{Original structural occurrence breakdown}\begin{tabular}{lrrr}\toprule
 $n$ &3&4&5\\\midrule
@@ -167,15 +169,25 @@ Let a feasible, deterministic shadow-myopic trajectory $\bar\pi_0^{\rm myo},\ldo
 
 Under correct forecasts in each queried window, the same feasibility and migration-cost accounting, and the retained-incumbent rule, an accepted plan replaces a prospective full trajectory by one of cost smaller by $\Delta_k>0$. The plans agree beyond the comparison endpoint, so all later actions can be shared. Induction preserves a feasible full continuation, and telescoping gives $C_{\rm myopic}-C_{\rm RAR}=\sum_{k=1}^T\Delta_k\ge0$. Since offline DP minimizes over the feasible full trajectories, $C_{\rm offline}\le C_{\rm RAR}\le C_{\rm myopic}$. This is a conditional use of the known feasible-baseline or fortified rollout principle, not a new general theorem. It gives no matched-preview MPC dominance or forecast-error robustness.
 
-\section{Evidence files and publication status}\label{sec:files}
-Two machine-readable internal archives are available alongside this working supplement:
-\begin{description}[leftmargin=5mm,style=nextline]
-\item[Core reproducibility archive] \path{VCC2027_Reproducibility_Package_v1_0.zip}. Contains the core finite-state experiment scripts, populations, full raw trace tables, source-specific README, exact $n=5$ placement enumeration, rational payback certificate, and verification scripts. Key files are the verification script and the complete-enumeration and payback records:\begin{itemize}[leftmargin=*,nosep]
-\item \path{multiservice/verify_n5_certificate.py}
-\item \path{multiservice/certificate/n5_14_all_placements.csv}
-\item \path{multiservice/data/fraction_certificates.json}
+\section{Evidence files, licenses, and versioned publication}\label{sec:files}
+The versioned public research artifact is maintained at
+\begin{quote}\small\url{https://github.com/jozsefbirotmit/edge-orch-reprod}.\end{quote}
+The first archived version has the version-specific identifier \url{https://doi.org/10.5281/zenodo.24200109} (v1.0.0). This v2.4 supplement updates that previously published companion document; its next archival DOI must be copied from Zenodo only \emph{after} a new tagged release has been ingested. Never substitute the older version DOI for a revised release.
+
+The repository contains both the original exact-placement and multiservice experimental archive and the ablation study in a single stable directory tree. Principal files include:
+\begin{itemize}[leftmargin=*,nosep]
+\item \path{experiments/multiservice/verify_n5_certificate.py} --- exact witness validation and payback checks;
+\item \path{experiments/multiservice/certificate/n5_14_all_placements.csv} --- all placement costs;
+\item \path{experiments/multiservice/data/fraction_certificates.json} --- independent rational certificates;
+\item \path{experiments/ablation/verify_results.py} --- mechanism ablation verification;
+\item \path{tools/verify_release.py} --- archived release integrity and smoke tests;
+\item \path{SHA256SUMS.txt} --- full release file integrity manifest.
 \end{itemize}
-\item[Ablation archive] \path{VCC2027_Ablation_Study_v1_0.zip}. Contains matched-population ablation scripts and outputs, paired population counts, the selected witness checks, and independent verification instructions.
-\end{description}
-The file paths above are relative to the unzipped archive root \path{VCC2027_Reproducibility_v1_0/} or \path{VCC2027_Ablation_v1_0/}. Follow the README in each archive for verification commands. To rerun rational payback DP from the root of the first archive, use:\begin{quote}\small\path{python multiservice/verify_n5_certificate.py --deep-payback}\end{quote} \textbf{Publication is still pending:} obtain the authors' approval, choose and record a license, merge the two archives into a reproducible public release, assign a stable URL or DOI, and insert that genuine address in the final main paper. Neither this working supplement nor a local ZIP path is an external citation.
+The code and executable scripts are provided under the MIT License. Original synthetic data, figures, and written documentation are provided under CC BY 4.0; consult \path{LICENSE}, \path{LICENSE-DATA.md}, and \path{docs/LICENSING.md} for coverage. The corresponding author has confirmed Nokia/BME dissemination approvals and the two-author copyright attribution.
+
+For the release-root verification suite, run:
+\begin{quote}\small\verb|python -B tools/verify_release.py --quick|\end{quote}
+For the independent deep payback verification, run from the release root:
+\begin{quote}\small\verb|python -B experiments/multiservice/verify_n5_certificate.py --deep-payback|\end{quote}
+The underlying figure PDFs and numerical data are archived. A fully automated recreation of the exact conference manuscript Figures 2 and 3 has not been independently certified, and the simulations use synthetic (not measured telecom) workloads. These limitations do not affect the stated exact rational certificates.
 \end{document}
