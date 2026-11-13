@@ -1,6 +1,6 @@
 # Communication–Compute Service Placement: Reproducibility Artifact
 
-> **VERSION 1.0.0 RELEASE CANDIDATE (13 November 2026) — Zenodo DOI pending.**  
+> **VERSION 1.0.0 (13 November 2026) — version-specific DOI supplied by the Zenodo record after archiving.**  
 > Accompanies the six-page manuscript **v2.3.1**, *Non-Monotone Service Placement and Reconfiguration Barriers in Edge Orchestration*, by Gábor Kuruc and József Bíró.  
 > **The corresponding author has confirmed institutional publication approval, MIT/CC BY 4.0 licensing, and the copyright attribution in the MIT LICENSE. No DOI has yet been assigned.** The experiments are synthetic, not measured telecom traces.
 
@@ -51,10 +51,10 @@ Full experiment regeneration is more expensive and **writes outputs**: run `pyth
 
 The detailed claim-to-file map is in [`docs/MANIFEST.md`](docs/MANIFEST.md); independently performed checks are in [`docs/VERIFICATION_REPORT.md`](docs/VERIFICATION_REPORT.md).
 
-## What is **not** yet complete
+## Archival status and known limitations
 
-The current archive is **not a published dataset**. A durable DOI, a public GitHub release tag, and a complete tested generator for the exact manuscript Fig. 2 and Fig. 3 PDFs remain outstanding. The corresponding author confirms Nokia/BME publication approval and the MIT license copyright attribution; dual MIT/CC BY 4.0 license files are included. The conference's supplementary-material and double-blind rules must also be checked. Never cite a guessed DOI. A sample DOI placeholder belongs only in internal planning documents, not the submitted manuscript.
+The release-specific DOI is assigned **by Zenodo after successful ingestion of the tagged GitHub release**; it is intentionally not hard-coded into this frozen source snapshot. Consult the corresponding Zenodo record for the verified DOI. A complete tested generator for the exact manuscript Fig. 2 and Fig. 3 PDFs has not been provided; the PDFs and underlying numerical evidence are included. The corresponding author confirms Nokia/BME publication approval and the MIT license copyright attribution. The conference's supplementary-material and anonymous-review rules should be checked before submitting the manuscript. Never cite an unverified DOI.
 
 ## Licenses and public release
 
-Software code is MIT-licensed (`LICENSE`); original synthetic datasets, research figures and text are CC BY 4.0 (`LICENSE-DATA.md`). See `docs/LICENSING.md` for scope, third-party caveats, and the confirmed copyright attribution. The present package has **no assigned DOI**.
+Software code is MIT-licensed (`LICENSE`); original synthetic datasets, research figures and text are CC BY 4.0 (`LICENSE-DATA.md`). See `docs/LICENSING.md` for scope, third-party caveats, and the confirmed copyright attribution. The authoritative **version DOI** is the one displayed on the published Zenodo record, if archiving succeeds.

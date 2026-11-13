@@ -19,4 +19,4 @@
 
 - Corresponding author confirmed that the two-author MIT copyright attribution is appropriate.
 - Explicitly recorded that Nokia and BME dissemination approvals and dual-license choices have been confirmed.
-- Repository remains private; GitHub public release and Zenodo DOI are still pending.
+- Repository was later switched to public in preparation for Zenodo integration. The DOI is only assigned after the GitHub release has been archived successfully.
